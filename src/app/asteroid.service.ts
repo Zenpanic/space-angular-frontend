@@ -13,6 +13,7 @@ export class AsteroidService {
     let params = new HttpParams();
     let formatedDate = startDate.toISOString().split('T')[0];
     params = params.append("startDate", formatedDate);
-    return this.http.get<Asteroid[]>("http://localhost:5000/asteroid", {responseType: 'json', params});
+    // return this.http.get<Asteroid[]>("http://localhost:5000/asteroid", {responseType: 'json', params});
+    return this.http.get<Asteroid[]>("https://zencosmos-backend.herokuapp.com/asteroid", {responseType: 'json', params});
   }
 }
