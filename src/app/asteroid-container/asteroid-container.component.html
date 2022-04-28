@@ -1,5 +1,5 @@
 <div class="table-container">
-    <table mat-table [dataSource]="asteroidList">
+    <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef> Id </th>
             <td mat-cell *matCellDef="let asteroid">{{asteroid.id}}</td>        
@@ -10,14 +10,9 @@
             <td mat-cell *matCellDef="let asteroid">{{asteroid.name}}</td>        
         </ng-container>
 
-        <ng-container matColumnDef="diameter_min">
-            <th mat-header-cell *matHeaderCellDef> Diameter Min. </th>
-            <td mat-cell *matCellDef="let asteroid">{{asteroid.diameter_min}} m</td>        
-        </ng-container>
-
-        <ng-container matColumnDef="diameter_max">
-            <th mat-header-cell *matHeaderCellDef> Diameter Max. </th>
-            <td mat-cell *matCellDef="let asteroid">{{asteroid.diameter_max}} m</td>        
+        <ng-container matColumnDef="approx_diameter">
+            <th mat-header-cell *matHeaderCellDef> Approx. Diameter </th>
+            <td mat-cell *matCellDef="let asteroid">{{(asteroid.diameter_min + asteroid.diameter_max) / 2}} m</td>        
         </ng-container>
 
         <ng-container matColumnDef="is_dangerous">
@@ -34,13 +29,9 @@
             <th mat-header-cell *matHeaderCellDef> Miss Distance </th>
             <td mat-cell *matCellDef="let asteroid">{{asteroid.miss_distance}} km</td>        
         </ng-container>
-
-        <ng-container matColumnDef="link">
-            <th mat-header-cell *matHeaderCellDef> Learn more </th>
-            <td mat-cell *matCellDef="let asteroid"><a href={{asteroid.link}}>Click me!</a></td>        
-        </ng-container>
-
         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
         <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
     </table>
 </div>
+
+<mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>

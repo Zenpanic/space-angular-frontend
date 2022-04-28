@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, OnChanges, SimpleChange } from '@angular/core';
+import { Component, Input, OnInit, SimpleChange, ViewChild } from '@angular/core';
 import { AsteroidService } from '../asteroid.service';
-import { Asteroid } from '../Asteroid';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-asteroid-container',
@@ -10,23 +11,24 @@ import { Asteroid } from '../Asteroid';
 export class AsteroidContainerComponent implements OnInit {
 
   @Input() startDate!: Date;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+
+  dataSource = new MatTableDataSource();
 
   constructor(private asteroidService: AsteroidService) { }
 
-  asteroidList!: Asteroid[];
-
-  columnsToDisplay = ['id', 'name', 'diameter_min', 'diameter_max', 'is_dangerous', 'relative_velocity', 'miss_distance', 'link'];
+  columnsToDisplay = ['id', 'name', 'approx_diameter', 'is_dangerous', 'relative_velocity', 'miss_distance'];
 
   ngOnInit(): void {
-    this.fetchAsteroids();
+   this.dataSource.paginator = this.paginator;
+   /* this.fetchAsteroids(this.startDate); */
   }
 
-  ngOnChanges(changes: SimpleChange): void {
-    this.asteroidService.getAsteroids(this.startDate).subscribe(asteroids => this.asteroidList = asteroids);
+  ngOnChanges() {
+    this.fetchAsteroids(this.startDate)
   }
 
-  fetchAsteroids() {
-    this.asteroidService.getAsteroids(this.startDate).subscribe(asteroids => this.asteroidList = asteroids);
+  fetchAsteroids(startDate: Date) {
+    this.asteroidService.getAsteroids(startDate).subscribe(asteroids => this.dataSource.data = asteroids);
   }
-
 }

@@ -1,5 +1,23 @@
+.date-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 2rem auto 0 auto;
+}
+
 mat-toolbar {
-    background: darkblue;
+    background: #1b3252;
     color: white;
     padding: 1rem;
+}
+
+.main-subtitle {
+    font-size: small;
+}
+
+@media screen and (max-width: 800px) {
+    .main-subtitle {
+        display: none;
+    }
 }

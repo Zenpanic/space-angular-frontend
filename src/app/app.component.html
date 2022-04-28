@@ -1,11 +1,13 @@
-<!-- <mat-toolbar>
-  Zen Cosmos
-</mat-toolbar> -->
-<div>
+<mat-toolbar>
+    <h1 class="main-title">Zen Cosmos <span class="main-subtitle">- How soon is doom?</span></h1> 
+</mat-toolbar>
+
+<div class="date-container">
   <mat-form-field>
-    <input matInput (dateChange)="changeDate($event)" [matDatepicker]="picker" placeholder="Choose a date" [value]="startDate">
+    <input matInput [ngModel]="startDate" (ngModelChange)="changeDate($event)" [matDatepicker]="picker" placeholder="Choose a date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker startView="month" [startAt]="startDate" ></mat-datepicker>
   </mat-form-field>
 </div>
+
 <app-asteroid-container [startDate]="startDate"></app-asteroid-container>

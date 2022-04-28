@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'Zen Cosmos';
+  public startDate: Date = new Date();
 
   constructor() {}
 
@@ -14,12 +15,17 @@ export class AppComponent implements OnInit {
   }
 
   changeDate(event: any) {
-    if (event.target.value == null) {
+    if (event == null) {
       this.startDate = new Date();
       return;
     };
-    this.startDate = event.target.value;
-  }
-
-  startDate = new Date();
+    this.startDate = event;
+  }  
 }
+
+// TO ADD
+
+// Question mark icon on right of toolbar, with a modal explaining what the app is about.
+// Footer with zentown info
+// Click on an asteroid opens modal with a bit more info (max/min diameter, link to nasa, id)
+// Colors
