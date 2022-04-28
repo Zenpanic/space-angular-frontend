@@ -8,20 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'Zen Cosmos';
 
-  asteroidList = [];
+  constructor() {}
 
   ngOnInit(): void {
-    this.fetchData();
   }
 
-  async fetchData() {
-    const res = await fetch('http://localhost:5000/asteroids', {
-      method: 'post',
-      body: JSON.stringify({startDate: '2022-06-18'}),
-      headers: {"Content-type": "application/json; charset=UTF-8"},    
-    });
-    const data = await res.json();
-
-    console.log("data: ", data);
+  changeDate(event: any) {
+    if (event.target.value == null) {
+      this.startDate = new Date();
+      return;
+    };
+    this.startDate = event.target.value;
   }
+
+  startDate = new Date();
 }
