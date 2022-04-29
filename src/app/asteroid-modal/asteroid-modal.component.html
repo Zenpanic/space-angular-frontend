@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-title-group>
+        <mat-card-title>
+            {{data.name}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{data.id}}
+        </mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-divider [inset]="true"></mat-divider>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item><p><span class="key">Diameter Min.</span> : <span class="value">{{data.diameter_min}} km</span></p></mat-list-item>
+            <mat-list-item><p><span class="key">Diameter Max.</span> : <span class="value">{{data.diameter_max}} km</span></p></mat-list-item>
+            <mat-list-item><p><span class="key">Is Dangerous</span> : <span class="value">{{data.is_dangerous ? "Yes" : "No"}}</span></p></mat-list-item>
+            <mat-list-item><p><span class="key">Relative Velocity</span> : <span class="value">{{data.relative_velocity}} kph</span></p></mat-list-item>
+            <mat-list-item><p><span class="key">Miss Distance</span> : <span class="value">{{data.miss_distance}} km</span></p></mat-list-item>
+        </mat-list>
+    </mat-card-content>
+    <mat-card-footer>
+        <a [href]="data.link" rel="noopener" mat-stroked-button class="button-link" target="_blank" color="accent">Learn More</a>
+    </mat-card-footer>
+
+</mat-card>

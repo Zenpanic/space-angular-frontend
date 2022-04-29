@@ -3,6 +3,13 @@
     margin: 1rem;
 }
 
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem 1rem;
+}
+
 table {
     width: 100%;
 }

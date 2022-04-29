@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar color="primary" class="header-bar">
     <h1 class="main-title">Zen Cosmos <span class="main-subtitle">- How soon is doom?</span></h1> 
 </mat-toolbar>
 
@@ -11,3 +11,7 @@
 </div>
 
 <app-asteroid-container [startDate]="startDate"></app-asteroid-container>
+
+<mat-toolbar color="primary" class="footer-bar">
+  <mat-toolbar-row class="footer-row"><p class="footer-text">Built by <a href="https://zentown.dev">ZenTown</a> with the <a href="https://api.nasa.gov/" rel="noopener" target="_blank">NASA APIs</a>.</p></mat-toolbar-row>
+</mat-toolbar>

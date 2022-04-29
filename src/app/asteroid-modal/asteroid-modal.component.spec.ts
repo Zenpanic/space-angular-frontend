@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AsteroidCardComponent } from './asteroid-card.component';
+import { AsteroidModalComponent } from './asteroid-modal.component';
 
-describe('AsteroidCardComponent', () => {
-  let component: AsteroidCardComponent;
-  let fixture: ComponentFixture<AsteroidCardComponent>;
+describe('AsteroidModalComponent', () => {
+  let component: AsteroidModalComponent;
+  let fixture: ComponentFixture<AsteroidModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AsteroidCardComponent ]
+      declarations: [ AsteroidModalComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AsteroidCardComponent);
+    fixture = TestBed.createComponent(AsteroidModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

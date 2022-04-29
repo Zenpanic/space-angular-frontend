@@ -1,0 +1,12 @@
+.button-link {
+    margin: 0.5rem;
+}
+
+.key {
+    text-decoration: underline;
+    font-size: small;
+}
+
+mat-card-title-group {
+    margin-bottom: 0.5rem;
+}

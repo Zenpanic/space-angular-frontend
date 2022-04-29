@@ -7,13 +7,33 @@
 }
 
 mat-toolbar {
-    background: #1b3252;
     color: white;
     padding: 1rem;
 }
 
+.main-title {
+    font-size: x-large;
+}
+
 .main-subtitle {
+    font-size: medium;
+}
+
+.footer-bar {
+    position: absolute;
+    padding: 0;
+    bottom: 0;    
+}
+
+.footer-row {
     font-size: small;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.footer-row a {
+    color: #DDDDDD;
 }
 
 @media screen and (max-width: 800px) {
@@ -21,3 +41,4 @@ mat-toolbar {
         display: none;
     }
 }
+
