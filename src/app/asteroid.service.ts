@@ -15,7 +15,7 @@ export class AsteroidService {
     let params = new HttpParams();
     const year = startDate.getFullYear();
     const month = startDate.getMonth() < 10 ? `0${startDate.getMonth()}` : startDate.getMonth();
-    const day = startDate.getDate();
+    const day = startDate.getDate() < 10 ? `0${startDate.getDate()}` : startDate.getDate();
     let formatedDate = `${year}-${month}-${day}`;
     params = params.append("startDate", formatedDate);
     // return this.http.get<Asteroid[]>("http://localhost:5000/asteroid", {responseType: 'json', params}).pipe(retry(2), catchError(this.handleError));
