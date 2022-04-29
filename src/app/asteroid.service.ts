@@ -18,8 +18,8 @@ export class AsteroidService {
     const day = startDate.getDate();
     let formatedDate = `${year}-${month}-${day}`;
     params = params.append("startDate", formatedDate);
-    return this.http.get<Asteroid[]>("http://localhost:5000/asteroid", {responseType: 'json', params}).pipe(retry(2), catchError(this.handleError));
-    // return this.http.get<Asteroid[]>("https://zencosmos-backend.herokuapp.com/asteroid", {responseType: 'json', params}).pipe(retry(2), catchError(this.handleError));
+    // return this.http.get<Asteroid[]>("http://localhost:5000/asteroid", {responseType: 'json', params}).pipe(retry(2), catchError(this.handleError));
+    return this.http.get<Asteroid[]>("https://zencosmos-backend.herokuapp.com/asteroid", {responseType: 'json', params}).pipe(retry(2), catchError(this.handleError));
   }
 
   handleError(error: HttpErrorResponse) {
